@@ -3,9 +3,12 @@
 <form action="submit" [formGroup]="form" (submit)="cadastraNovoUsuario()" class="form mt-4">
   <div class="form-group">
     <input formControlName="email" class="form-control" name="email" placeholder="E-mail" type="text">
+    <app-mensagem *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched" [mensagem]="'Email obrigatório!'"></app-mensagem>
+    <app-mensagem *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" [mensagem]="'E-mail inválido!'"></app-mensagem>
   </div>
   <div class="form-group">
     <input formControlName="fullName" class="form-control" name="nome" placeholder="Nome completo" type="text">
+    <app-mensagem *ngIf="form.get('fullName')?.errors && form.get('fullName')?.touched" [mensagem]="'Nome inválido!'"></app-mensagem>
   </div>
   <div class="form-group">
     <input formControlName="userName" class="form-control" name="usuario" placeholder="Nome de usuário" type="text">
