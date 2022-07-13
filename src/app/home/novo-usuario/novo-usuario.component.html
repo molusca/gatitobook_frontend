@@ -17,6 +17,10 @@
   </div>
   <div class="form-group">
     <input formControlName="password" class="form-control" name="senha" placeholder="Senha" type="password">
+    <app-mensagem
+      *ngIf="form.errors?.['usuarioSenhaIguais'] && form.get('userName')?.touched && form.get('password')?.touched"
+      [mensagem]="'A senha não pode ser igual ao nome de usuário!'">
+    </app-mensagem>
   </div>
 
   <button
