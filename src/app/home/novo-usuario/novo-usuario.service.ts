@@ -17,4 +17,7 @@ export class NovoUsuarioService {
     return this.httpClient.post(`${this._url}/signup`, NovoUsuario);
   }
 
+  verificaUsuarioExistente(nomeUsuario: string): Observable<any> {
+    return this.httpClient.get(`${this._url}/exists/${nomeUsuario}`);
+  }
 }
