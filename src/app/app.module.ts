@@ -5,7 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
+import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 import { MensagemModule } from './componentes/mensagem/mensagem.module';
+import { RodapeModule } from './componentes/rodape/rodape.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { MensagemModule } from './componentes/mensagem/mensagem.module';
     AppRoutingModule,
     AutenticacaoModule,
     HttpClientModule,
-    MensagemModule
+    MensagemModule,
+    CabecalhoModule,
+    RodapeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
