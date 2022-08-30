@@ -8,6 +8,9 @@
         <p class="text-left break-word">
           {{ animal.description }}
         </p>
+        <div (click)="curtir()" class="fa fa-heart fa-2x mr-2 pull-left"> {{ animal.likes }} </div>
+        <div class="fa fa-comment-o fa-2x mr-2 ml-2"> {{ animal.comments }} </div>
+        <div (click)="excluir()" class="fa fa-trash fa-2x pull-right"> Excluir </div>
       </small>
     </div>
   </div>
