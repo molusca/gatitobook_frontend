@@ -20,7 +20,8 @@ import { RodapeModule } from './componentes/rodape/rodape.module';
     HttpClientModule,
     MensagemModule,
     CabecalhoModule,
-    RodapeModule
+    RodapeModule,
+    AutenticacaoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
