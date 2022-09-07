@@ -1,7 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
-import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
-import { AnimaisService } from '../animais.service';
+import { ActivatedRoute } from '@angular/router';
 import { Animais } from '../animal';
 
 @Component({
@@ -12,21 +10,16 @@ import { Animais } from '../animal';
 })
 export class ListaAnimaisComponent implements OnInit {
 
-  public animais$!: Observable<Animais>;
+  public animais!: Animais;
 
   constructor(
-    private usuarioService: UsuarioService,
-    private animaisService: AnimaisService,
+    private activateRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.animais$ = this.usuarioService.retornaUsuario()
-    .pipe(
-      switchMap((usuario) => {
-        const username = usuario.name ?? '';
-        return this.animaisService.listaDoUsuario(username);
-      })
-    )
+    this.activateRoute.params.subscribe(params => {
+      this.animais = this.activateRoute.snapshot.data['animais'];
+    });
   }
 
 }
