@@ -1,0 +1,8 @@
+<div [class.active-menu]="menuAtivo">
+  <div class="menu-bar">
+    <i class="fa fa-window-close" (click)="toggleMenu()" (keyup.space)="toggleMenu()"></i>
+    <ng-content></ng-content>
+  </div>
+
+  <div class="overlay" (click)="toggleMenu()"></div>
+</div>
