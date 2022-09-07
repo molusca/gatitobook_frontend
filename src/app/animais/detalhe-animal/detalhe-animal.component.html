@@ -12,6 +12,15 @@
         <div class="fa fa-comment-o fa-2x mr-2 ml-2"> {{ animal.comments }} </div>
         <div (click)="excluir()" class="fa fa-trash fa-2x pull-right"> Excluir </div>
       </small>
+
+      <app-comentarios
+        [id]="animalId"
+        *ngIf="animal.allowComments; else warning">
+      </app-comentarios>
+
+      <ng-template #warning>
+        <p class="text-center">Comentários desabilitados</p>
+      </ng-template>
     </div>
   </div>
 </div>
